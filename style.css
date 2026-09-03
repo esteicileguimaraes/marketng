@@ -1,1015 +1,115 @@
-/* =========================================================
-   COMO O MARKETING TE INFLUENCIA
-   CSS COMPLETO
-   ========================================================= */
-
-/* =========================================================
-   1. IMPORTAÇÃO DA FONTE
-   ========================================================= */
-
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
-
-
-/* =========================================================
-   2. VARIÁVEIS
-   ========================================================= */
-
-:root {
-    /* Cores principais */
-    --rosa: #f3c7d8;
-    --rosa-claro: #fcecf2;
-    --rosa-forte: #d98cab;
-
-    --lilas: #dcd2f3;
-    --lilas-claro: #f3f0fb;
-    --lilas-forte: #9b8ac4;
-
-    --azul: #c8e4f4;
-    --azul-claro: #edf8fd;
-    --azul-forte: #76abc8;
-
-    --menta: #cde9df;
-    --menta-claro: #effaf6;
-    --menta-forte: #75b49e;
-
-    --pessego: #f7d5bd;
-    --creme: #fffaf5;
-
-    /* Textos */
-    --texto: #403b45;
-    --texto-suave: #706a73;
-    --branco: #ffffff;
-
-    /* Efeitos */
-    --sombra-suave:
-        0 10px 35px rgba(74, 58, 82, 0.08);
-
-    --sombra-card:
-        0 15px 40px rgba(74, 58, 82, 0.10);
-
-    --sombra-hover:
-        0 22px 50px rgba(74, 58, 82, 0.15);
-
-    /* Bordas */
-    --radius-pequeno: 14px;
-    --radius-medio: 22px;
-    --radius-grande: 32px;
-
-    /* Transições */
-    --transicao: 0.3s ease;
-}
-
-
-/* =========================================================
-   3. RESET
-   ========================================================= */
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
-    font-family: 'DM Sans', sans-serif;
-    color: var(--texto);
-    background: var(--creme);
-    line-height: 1.7;
-    overflow-x: hidden;
+  background-color: #f4f6f9;
+  color: #333;
+  padding-bottom: 40px;
 }
 
-img {
-    display: block;
-    max-width: 100%;
+header {
+  background-color: #2b6cb0;
+  color: #fff;
+  text-align: center;
+  padding: 40px 20px;
 }
 
-button,
-a {
-    font-family: inherit;
+header h1 {
+  font-size: 2rem;
+  margin-bottom: 8px;
 }
-
-button {
-    border: none;
-    cursor: pointer;
-}
-
-a {
-    color: inherit;
-    text-decoration: none;
-}
-
-
-/* =========================================================
-   4. SELEÇÃO DE TEXTO
-   ========================================================= */
-
-::selection {
-    background: var(--rosa);
-    color: var(--texto);
-}
-
-
-/* =========================================================
-   5. BARRA DE ROLAGEM
-   ========================================================= */
-
-::-webkit-scrollbar {
-    width: 9px;
-}
-
-::-webkit-scrollbar-track {
-    background: #f7f1f5;
-}
-
-::-webkit-scrollbar-thumb {
-    background: linear-gradient(
-        to bottom,
-        var(--rosa),
-        var(--lilas)
-    );
-    border-radius: 20px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-    background: var(--rosa-forte);
-}
-
-
-/* =========================================================
-   6. ELEMENTOS DECORATIVOS
-   ========================================================= */
-
-body::before,
-body::after {
-    content: "";
-    position: fixed;
-    width: 350px;
-    height: 350px;
-    border-radius: 50%;
-    filter: blur(90px);
-    opacity: 0.22;
-    z-index: -1;
-    pointer-events: none;
-}
-
-body::before {
-    background: var(--rosa);
-    top: -180px;
-    left: -120px;
-}
-
-body::after {
-    background: var(--lilas);
-    right: -150px;
-    bottom: -180px;
-}
-
-
-/* =========================================================
-   7. CONTAINERS
-   ========================================================= */
 
 .container {
-    width: min(1120px, 90%);
-    margin: 0 auto;
+  max-width: 800px;
+  margin: 30px auto;
+  padding: 0 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
-
-
-/* =========================================================
-   8. HERO
-   ========================================================= */
-
-.hero {
-    position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 90px 0;
-    overflow: hidden;
-
-    background:
-        radial-gradient(
-            circle at 15% 20%,
-            rgba(243, 199, 216, 0.55),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 85% 25%,
-            rgba(220, 210, 243, 0.6),
-            transparent 30%
-        ),
-        linear-gradient(
-            135deg,
-            #fffaf5 0%,
-            #fff6f8 50%,
-            #f8f5fd 100%
-        );
-}
-
-.hero::before {
-    content: "";
-    position: absolute;
-    width: 250px;
-    height: 250px;
-    border-radius: 50%;
-    background: rgba(200, 228, 244, 0.4);
-    right: 8%;
-    bottom: -100px;
-    filter: blur(10px);
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-}
-
-.hero-content > * {
-    will-change: opacity, transform;
-}
-
-.hero h1 {
-    max-width: 800px;
-    margin-bottom: 24px;
-
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(3rem, 7vw, 6rem);
-    font-weight: 700;
-    line-height: 0.98;
-    letter-spacing: -2px;
-
-    color: var(--texto);
-}
-
-.hero h1 span {
-    color: var(--rosa-forte);
-}
-
-.hero p {
-    max-width: 650px;
-    margin-bottom: 35px;
-
-    color: var(--texto-suave);
-    font-size: clamp(1rem, 2vw, 1.2rem);
-}
-
-
-/* =========================================================
-   9. BOTÕES
-   ========================================================= */
-
-.btn,
-button {
-    transition:
-        transform var(--transicao),
-        box-shadow var(--transicao),
-        background var(--transicao),
-        color var(--transicao);
-}
-
-.btn-primary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-
-    padding: 15px 27px;
-
-    color: #ffffff;
-    background: var(--rosa-forte);
-
-    border-radius: 999px;
-    box-shadow: 0 10px 25px rgba(217, 140, 171, 0.25);
-
-    font-size: 0.95rem;
-    font-weight: 600;
-}
-
-.btn-primary::after {
-    content: "↓";
-    font-size: 1.1rem;
-    transition: transform var(--transicao);
-}
-
-.btn-primary:hover {
-    transform: translateY(-3px);
-    background: #cf7da0;
-    box-shadow: 0 15px 30px rgba(217, 140, 171, 0.32);
-}
-
-.btn-primary:hover::after {
-    transform: translateY(3px);
-}
-
-.btn-primary:active {
-    transform: translateY(0);
-}
-
-
-/* =========================================================
-   10. SEÇÕES
-   ========================================================= */
-
-section {
-    position: relative;
-}
-
-.section {
-    padding: 110px 0;
-}
-
-.section-header {
-    max-width: 720px;
-    margin: 0 auto 65px;
-    text-align: center;
-}
-
-.section-label {
-    display: inline-block;
-
-    margin-bottom: 15px;
-    padding: 7px 16px;
-
-    background: var(--rosa-claro);
-    color: var(--rosa-forte);
-
-    border-radius: 999px;
-
-    font-size: 0.78rem;
-    font-weight: 700;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-}
-
-.section-title {
-    margin-bottom: 18px;
-
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2.2rem, 5vw, 3.8rem);
-    line-height: 1.15;
-    color: var(--texto);
-}
-
-.section-description {
-    color: var(--texto-suave);
-    font-size: 1.05rem;
-}
-
-
-/* =========================================================
-   11. SEÇÃO DE TÓPICOS
-   ========================================================= */
-
-#topics {
-    background:
-        linear-gradient(
-            180deg,
-            #fffaf5 0%,
-            #fdf8fa 100%
-        );
-}
-
-
-/* =========================================================
-   12. GRID DOS CARDS
-   ========================================================= */
-
-.cards-container,
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 28px;
-}
-
-
-/* =========================================================
-   13. CARDS
-   ========================================================= */
 
 .card {
-    position: relative;
-    overflow: hidden;
-
-    padding: 34px;
-
-    background: rgba(255, 255, 255, 0.82);
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    border-radius: var(--radius-grande);
-
-    box-shadow: var(--sombra-card);
-
-    transition:
-        transform 0.45s ease,
-        box-shadow 0.45s ease,
-        border-color 0.45s ease;
-
-    opacity: 0;
-    transform: translateY(35px);
-
-    cursor: pointer;
+  background: #fff;
+  padding: 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
-.card.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--sombra-hover);
-    border-color: rgba(217, 140, 171, 0.2);
-}
-
-.card.selected {
-    border-color: var(--rosa);
-    box-shadow:
-        0 20px 50px rgba(217, 140, 171, 0.18);
-}
-
-
-/* =========================================================
-   14. DECORAÇÃO DOS CARDS
-   ========================================================= */
-
-.card::before {
-    content: "";
-    position: absolute;
-
-    width: 150px;
-    height: 150px;
-
-    border-radius: 50%;
-
-    top: -80px;
-    right: -60px;
-
-    background: var(--rosa-claro);
-
-    transition: transform 0.5s ease;
-}
-
-.card:hover::before {
-    transform: scale(1.3);
-}
-
-.card:nth-child(2)::before {
-    background: var(--lilas-claro);
-}
-
-.card:nth-child(3)::before {
-    background: var(--azul-claro);
-}
-
-.card:nth-child(4)::before {
-    background: var(--menta-claro);
-}
-
-.card:nth-child(5)::before {
-    background: #fff1e9;
-}
-
-
-/* =========================================================
-   15. IMAGENS DOS CARDS
-   ========================================================= */
-
-.card img {
-    position: relative;
-    z-index: 1;
-
-    width: 100%;
-    height: 220px;
-
-    margin-bottom: 27px;
-
-    object-fit: cover;
-
-    border-radius: var(--radius-medio);
-
-    background: var(--rosa-claro);
-
-    transition:
-        transform 0.5s ease,
-        filter 0.5s ease;
-}
-
-.card:hover img {
-    transform: scale(1.025);
-}
-
-
-/* =========================================================
-   16. ÍCONE DOS CARDS
-   ========================================================= */
-
-.card-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 58px;
-    height: 58px;
-
-    margin-bottom: 20px;
-
-    border-radius: 18px;
-
-    background: var(--rosa-claro);
-    color: var(--rosa-forte);
-
-    font-size: 1.5rem;
-}
-
-.card:nth-child(2) .card-icon {
-    background: var(--lilas-claro);
-    color: var(--lilas-forte);
-}
-
-.card:nth-child(3) .card-icon {
-    background: var(--azul-claro);
-    color: var(--azul-forte);
-}
-
-.card:nth-child(4) .card-icon {
-    background: var(--menta-claro);
-    color: var(--menta-forte);
-}
-
-.card:nth-child(5) .card-icon {
-    background: #fff1e9;
-    color: #d79570;
-}
-
-
-/* =========================================================
-   17. TEXTO DOS CARDS
-   ========================================================= */
-
-.card h3 {
-    position: relative;
-    z-index: 2;
-
-    margin-bottom: 12px;
-
-    font-family: 'Playfair Display', serif;
-    font-size: 1.65rem;
-    line-height: 1.2;
-
-    color: var(--texto);
+.card h2 {
+  color: #2b6cb0;
+  margin-bottom: 8px;
 }
 
 .card p {
-    position: relative;
-    z-index: 2;
-
-    color: var(--texto-suave);
-    font-size: 0.98rem;
+  color: #666;
+  margin-bottom: 16px;
+  font-size: 0.95rem;
 }
 
-
-/* =========================================================
-   18. ÚLTIMO CARD CENTRALIZADO
-   ========================================================= */
-
-.card:last-child {
-    grid-column: 1 / -1;
-    max-width: 550px;
-    width: 100%;
-    justify-self: center;
+.form-group {
+  margin-bottom: 15px;
 }
 
-
-/* =========================================================
-   19. ANIMAÇÃO DE FADE
-   ========================================================= */
-
-.fade-in {
-    opacity: 0;
-    transform: translateY(25px);
-
-    transition:
-        opacity 0.8s ease,
-        transform 0.8s ease;
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 600;
 }
 
-.fade-in.visible {
-    opacity: 1;
-    transform: translateY(0);
+select, input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
 }
 
-
-/* =========================================================
-   20. SEÇÃO DE INTERAÇÃO
-   ========================================================= */
-
-.interaction {
-    padding: 100px 0;
-    background:
-        linear-gradient(
-            135deg,
-            #f8edf4,
-            #f1eef9
-        );
+button {
+  background-color: #319795;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
 }
 
-.interaction-box {
-    position: relative;
-    overflow: hidden;
-
-    max-width: 850px;
-    margin: 0 auto;
-    padding: 65px 45px;
-
-    text-align: center;
-
-    background: rgba(255, 255, 255, 0.72);
-
-    border: 1px solid rgba(255, 255, 255, 0.9);
-    border-radius: var(--radius-grande);
-
-    box-shadow: var(--sombra-card);
-
-    backdrop-filter: blur(10px);
+button:hover {
+  background-color: #2c7a7b;
 }
 
-.interaction-box::before,
-.interaction-box::after {
-    content: "";
-    position: absolute;
-
-    border-radius: 50%;
-
-    pointer-events: none;
+.resultado {
+  margin-top: 15px;
+  padding: 12px;
+  background-color: #e6fffa;
+  border-left: 4px solid #319795;
+  border-radius: 4px;
+  color: #234e52;
 }
 
-.interaction-box::before {
-    width: 170px;
-    height: 170px;
-
-    left: -90px;
-    top: -70px;
-
-    background: var(--rosa-claro);
+.hidden {
+  display: none;
 }
 
-.interaction-box::after {
-    width: 180px;
-    height: 180px;
-
-    right: -100px;
-    bottom: -80px;
-
-    background: var(--lilas-claro);
+.checklist {
+  list-style: none;
 }
 
-.interaction-box h2 {
-    position: relative;
-    z-index: 2;
-
-    margin-bottom: 15px;
-
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    line-height: 1.2;
+.checklist li {
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
-.interaction-box p {
-    position: relative;
-    z-index: 2;
-
-    max-width: 620px;
-    margin: 0 auto 30px;
-
-    color: var(--texto-suave);
-}
-
-
-/* =========================================================
-   21. BOTÕES DA INTERAÇÃO
-   ========================================================= */
-
-.interaction-buttons {
-    position: relative;
-    z-index: 3;
-
-    display: flex;
-    justify-content: center;
-    gap: 14px;
-    flex-wrap: wrap;
-}
-
-.interaction-buttons button {
-    padding: 13px 28px;
-
-    border-radius: 999px;
-
-    font-size: 0.95rem;
-    font-weight: 600;
-}
-
-#yesButton {
-    background: var(--rosa-forte);
-    color: white;
-
-    box-shadow:
-        0 8px 20px rgba(217, 140, 171, 0.2);
-}
-
-#yesButton:hover {
-    transform: translateY(-3px);
-    background: #cf7da0;
-}
-
-#noButton {
-    background: white;
-    color: var(--texto);
-
-    border: 1px solid #eadfe5;
-}
-
-#noButton:hover {
-    transform: translateY(-3px);
-    background: #faf6f8;
-    border-color: var(--rosa);
-}
-
-
-/* =========================================================
-   22. MENSAGEM DA INTERAÇÃO
-   ========================================================= */
-
-#interactionMessage {
-    position: relative;
-    z-index: 3;
-
-    max-width: 600px;
-
-    margin: 25px auto 0;
-    padding: 16px 22px;
-
-    color: var(--texto);
-
-    background: rgba(255, 255, 255, 0.75);
-
-    border-radius: var(--radius-medio);
-
-    font-size: 0.95rem;
-
-    opacity: 0;
-    transform: translateY(10px);
-
-    transition:
-        opacity 0.4s ease,
-        transform 0.4s ease;
-}
-
-#interactionMessage.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-/* =========================================================
-   23. VOLTAR AO TOPO
-   ========================================================= */
-
-#backToTop {
-    position: fixed;
-
-    right: 25px;
-    bottom: 25px;
-
-    z-index: 100;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 48px;
-    height: 48px;
-
-    border-radius: 50%;
-
-    background: var(--rosa-forte);
-    color: white;
-
-    box-shadow:
-        0 10px 25px rgba(217, 140, 171, 0.3);
-
-    font-size: 1.2rem;
-
-    opacity: 0;
-    visibility: hidden;
-
-    transform: translateY(15px);
-
-    transition:
-        opacity 0.3s ease,
-        visibility 0.3s ease,
-        transform 0.3s ease,
-        background 0.3s ease;
-}
-
-#backToTop.visible {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-#backToTop:hover {
-    background: #cf7da0;
-    transform: translateY(-4px);
-}
-
-
-/* =========================================================
-   24. FOOTER
-   ========================================================= */
-
-footer {
-    padding: 45px 20px;
-
-    background: #403b45;
-    color: #ffffff;
-
-    text-align: center;
-}
-
-footer p {
-    max-width: 700px;
-    margin: 0 auto;
-
-    color: rgba(255, 255, 255, 0.8);
-
-    font-size: 0.9rem;
-    line-height: 1.7;
-}
-
-footer strong {
-    color: var(--rosa);
-}
-
-
-/* =========================================================
-   25. LINKS / FOCO
-   ========================================================= */
-
-button:focus-visible,
-a:focus-visible,
-.card:focus-visible {
-    outline: 3px solid rgba(217, 140, 171, 0.5);
-    outline-offset: 4px;
-}
-
-
-/* =========================================================
-   26. RESPONSIVIDADE — TABLETS
-   ========================================================= */
-
-@media (max-width: 900px) {
-
-    .hero {
-        min-height: auto;
-        padding: 120px 0 90px;
-    }
-
-    .hero h1 {
-        font-size: clamp(3rem, 9vw, 5rem);
-    }
-
-    .section {
-        padding: 85px 0;
-    }
-
-    .cards-container,
-    .cards-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .card:last-child {
-        grid-column: auto;
-        max-width: none;
-    }
-
-    .card {
-        padding: 30px;
-    }
-
-}
-
-
-/* =========================================================
-   27. RESPONSIVIDADE — CELULARES
-   ========================================================= */
-
-@media (max-width: 600px) {
-
-    .container {
-        width: min(92%, 520px);
-    }
-
-    .hero {
-        padding: 90px 0 75px;
-    }
-
-    .hero h1 {
-        font-size: clamp(2.6rem, 14vw, 4rem);
-        letter-spacing: -1px;
-    }
-
-    .hero p {
-        font-size: 0.98rem;
-        line-height: 1.7;
-    }
-
-    .btn-primary {
-        width: 100%;
-        padding: 15px 20px;
-    }
-
-    .section {
-        padding: 70px 0;
-    }
-
-    .section-header {
-        margin-bottom: 42px;
-    }
-
-    .section-title {
-        font-size: 2.3rem;
-    }
-
-    .section-description {
-        font-size: 0.95rem;
-    }
-
-    .card {
-        padding: 22px;
-        border-radius: 25px;
-    }
-
-    .card img {
-        height: 190px;
-        border-radius: 18px;
-    }
-
-    .card h3 {
-        font-size: 1.45rem;
-    }
-
-    .card p {
-        font-size: 0.92rem;
-    }
-
-    .interaction {
-        padding: 70px 0;
-    }
-
-    .interaction-box {
-        padding: 45px 22px;
-        border-radius: 25px;
-    }
-
-    .interaction-box h2 {
-        font-size: 2rem;
-    }
-
-    .interaction-buttons {
-        flex-direction: column;
-        width: 100%;
-    }
-
-    .interaction-buttons button {
-        width: 100%;
-    }
-
-    #backToTop {
-        right: 18px;
-        bottom: 18px;
-
-        width: 44px;
-        height: 44px;
-    }
-
-}
-
-
-/* =========================================================
-   28. REDUÇÃO DE MOVIMENTO
-   ========================================================= */
-
-@media (prefers-reduced-motion: reduce) {
-
-    *,
-    *::before,
-    *::after {
-        scroll-behavior: auto !important;
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
-
+.checklist input {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
 }
